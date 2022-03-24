@@ -1,5 +1,6 @@
 package domain;
 
+import com.google.inject.Inject;
 import contract.SpellChecker;
 
 /**
@@ -12,6 +13,7 @@ public class TextEditor {
     private SpellChecker spellChecker;
 
     // 通过以下构造函数注入
+    @Inject
     public TextEditor(SpellChecker spellChecker){
         this.spellChecker = spellChecker;
     }
