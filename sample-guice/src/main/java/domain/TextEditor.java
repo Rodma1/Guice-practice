@@ -6,7 +6,7 @@ import contract.SpellChecker;
 /**
  * @author: 那就叫小智吧
  * @date: 2022/3/24 16:50
- * @Description: 绑定接口类和实现类
+ * @Description: 绑定接口类和实现类 文本编辑器
  */
 public class TextEditor {
 
