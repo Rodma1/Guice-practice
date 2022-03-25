@@ -1,5 +1,7 @@
 package domain;
 
+import annotation.AssertProvider;
+import annotation.Provider;
 import annotation.UseJunit;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -18,7 +20,7 @@ public class TextEditor {
     private Assertor assertor;
     // 通过以下构造函数注入
     @Inject
-    public TextEditor(SpellChecker spellChecker,@Named("UseTest") Assertor assertor){
+    public TextEditor(SpellChecker spellChecker,@AssertProvider(Provider.JUnit) Assertor assertor){
         this.spellChecker = spellChecker;
 
         this.assertor = assertor;
