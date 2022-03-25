@@ -8,5 +8,6 @@ package annotation;
 public enum Provider {
     TestNG,
     JUnit,
+    Hello,
     Other
 }

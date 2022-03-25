@@ -25,7 +25,7 @@ public class TextEditor {
 
     // 通过以下构造函数注入
     @Inject
-    public TextEditor(SpellChecker spellChecker,@AssertProvider(Provider.TestNG) Assertor assertor, @Named("Hello") String ss){
+    public TextEditor(SpellChecker spellChecker,@AssertProvider(Provider.TestNG) Assertor assertor, @AssertProvider(Provider.Hello) String ss){
         this.spellChecker = spellChecker;
 
         this.assertor = assertor;
