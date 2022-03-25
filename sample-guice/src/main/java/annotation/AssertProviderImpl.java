@@ -1,5 +1,7 @@
 package annotation;
 
+import com.google.inject.internal.Annotations;
+
 import java.lang.annotation.Annotation;
 
 /**
@@ -19,6 +21,17 @@ public class AssertProviderImpl implements AssertProvider{
         return this.value;
     }
 
+    // 生成唯一的hashcode
+    @Override
+    public int hashCode() {
+        // 每次取得都是名字一样的hash值 ， 127不能变
+        return (127 * "value".hashCode()) ^ value.hashCode();
+    }
+
+    // 重写toString方法，方便错误查看
+    public String toString() {
+        return "@" + AssertProvider.class.getName() + "(" + Annotations.memberValueString("value",value) + ")";
+    }
 
     @Override
     public Class<? extends Annotation> annotationType() {

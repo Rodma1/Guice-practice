@@ -20,7 +20,7 @@ public class TextEditor {
     private Assertor assertor;
     // 通过以下构造函数注入
     @Inject
-    public TextEditor(SpellChecker spellChecker,@AssertProvider(Provider.JUnit) Assertor assertor){
+    public TextEditor(SpellChecker spellChecker,@AssertProvider(Provider.TestNG) Assertor assertor){
         this.spellChecker = spellChecker;
 
         this.assertor = assertor;

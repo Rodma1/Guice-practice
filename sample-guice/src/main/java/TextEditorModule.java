@@ -30,7 +30,8 @@ public class TextEditorModule extends AbstractModule {
         // 命名绑定
         bind(Assertor.class).annotatedWith(Names.named("UseTest")).to(TestNGAAssertor.class);
 
-        // 随便测试
+        // 自定义绑定
         bind(Assertor.class).annotatedWith(AsserProvider.assertProvider(Provider.JUnit)).to(JunitAssertor.class);
+        bind(Assertor.class).annotatedWith(AsserProvider.assertProvider(Provider.TestNG)).to(TestNGAAssertor.class);
     }
 }
