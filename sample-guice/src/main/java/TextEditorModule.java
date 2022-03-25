@@ -1,6 +1,8 @@
 import annotation.UseJunit;
 import annotation.UseTestNG;
 import com.google.inject.AbstractModule;
+import com.google.inject.name.Named;
+import com.google.inject.name.Names;
 import contract.Assertor;
 import contract.SpellChecker;
 import implementation.JunitAssertor;
@@ -25,5 +27,8 @@ public class TextEditorModule extends AbstractModule {
         // 元注解绑定
         bind(Assertor.class).annotatedWith(UseJunit.class).to(JunitAssertor.class);
         bind(Assertor.class).annotatedWith(UseTestNG.class).to(TestNGAAssertor.class);
+
+        // 命名绑定
+        bind(Assertor.class).annotatedWith(Names.named("UseTest")).to(TestNGAAssertor.class);
     }
 }
