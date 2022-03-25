@@ -33,5 +33,8 @@ public class TextEditorModule extends AbstractModule {
         // 自定义绑定
         bind(Assertor.class).annotatedWith(AsserProvider.assertProvider(Provider.JUnit)).to(JunitAssertor.class);
         bind(Assertor.class).annotatedWith(AsserProvider.assertProvider(Provider.TestNG)).to(TestNGAAssertor.class);
+
+        // 绑定String常量
+        bind(String.class).annotatedWith(Names.named("Hello")).toInstance("你好呀");
     }
 }

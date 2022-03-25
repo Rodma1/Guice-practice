@@ -16,14 +16,21 @@ import contract.SpellChecker;
 public class TextEditor {
 
     private SpellChecker spellChecker;
+
     // 通过元注解注入
     private Assertor assertor;
+
+    // 参数
+    private String ss;
+
     // 通过以下构造函数注入
     @Inject
-    public TextEditor(SpellChecker spellChecker,@AssertProvider(Provider.TestNG) Assertor assertor){
+    public TextEditor(SpellChecker spellChecker,@AssertProvider(Provider.TestNG) Assertor assertor, @Named("Hello") String ss){
         this.spellChecker = spellChecker;
 
         this.assertor = assertor;
+
+        this.ss = ss;
     }
 
     // 获取对象方法
@@ -31,6 +38,8 @@ public class TextEditor {
         spellChecker.checkSpelling();
 
         assertor.equal(1,2);
+
+        System.out.println(ss);
     }
 
 }
