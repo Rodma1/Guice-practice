@@ -36,6 +36,8 @@ public class TextEditorModule extends AbstractModule {
 
         // 绑定String常量
         bind(String.class).annotatedWith(Names.named("Hello")).toInstance("你好呀");
+        // 简写,如果是自定义的类就不能使用
+        bindConstant().annotatedWith(Names.named("hello")).to("早上好");
 
         //  自定义参数绑定
         bind(String.class).annotatedWith(AsserProvider.assertProvider(Provider.Hello)).toInstance("你好呀");
