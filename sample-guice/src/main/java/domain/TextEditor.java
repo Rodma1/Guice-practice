@@ -1,6 +1,8 @@
 package domain;
 
+import annotation.UseJunit;
 import com.google.inject.Inject;
+import contract.Assertor;
 import contract.SpellChecker;
 
 /**
@@ -11,16 +13,21 @@ import contract.SpellChecker;
 public class TextEditor {
 
     private SpellChecker spellChecker;
-
+    // 通过元注解注入
+    private Assertor assertor;
     // 通过以下构造函数注入
     @Inject
-    public TextEditor(SpellChecker spellChecker){
+    public TextEditor(SpellChecker spellChecker,@UseJunit Assertor assertor){
         this.spellChecker = spellChecker;
+
+        this.assertor = assertor;
     }
 
     // 获取对象方法
     public void makeSpellChecker() {
         spellChecker.checkSpelling();
+
+        assertor.equal(1,2);
     }
 
 }
