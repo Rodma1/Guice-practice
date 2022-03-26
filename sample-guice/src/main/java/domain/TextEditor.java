@@ -6,6 +6,7 @@ import annotation.UseJunit;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import contract.Assertor;
+import contract.SampleProvider;
 import contract.SpellChecker;
 
 /**
@@ -23,14 +24,22 @@ public class TextEditor {
     // 参数
     private String ss;
 
+    SampleProvider sampleProvider;
+
     // 通过以下构造函数注入
     @Inject
-    public TextEditor(SpellChecker spellChecker,@AssertProvider(Provider.TestNG) Assertor assertor, @AssertProvider(Provider.Hello) String ss){
+    public TextEditor(SpellChecker spellChecker,
+                      @AssertProvider(Provider.TestNG) Assertor assertor,
+                      @AssertProvider(Provider.Hello) String ss,
+                      SampleProvider sampleProvider
+    ){
         this.spellChecker = spellChecker;
 
         this.assertor = assertor;
 
         this.ss = ss;
+
+        this.sampleProvider = sampleProvider;
     }
 
     // 获取对象方法
@@ -40,6 +49,8 @@ public class TextEditor {
         assertor.equal(1,2);
 
         System.out.println(ss);
+
+        sampleProvider.someAction();
     }
 
 }

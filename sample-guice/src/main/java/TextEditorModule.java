@@ -1,13 +1,12 @@
 import annotation.*;
 import com.google.inject.AbstractModule;
+import com.google.inject.Provides;
 import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 import contract.Assertor;
+import contract.SampleProvider;
 import contract.SpellChecker;
-import implementation.JunitAssertor;
-import implementation.SpellCheckerImpl;
-import implementation.TestNGAAssertor;
-import implementation.WinWordSpellCheckerImpl;
+import implementation.*;
 
 /**
  * @author: 那就叫小智吧
@@ -41,5 +40,15 @@ public class TextEditorModule extends AbstractModule {
 
         //  自定义参数绑定
         bind(String.class).annotatedWith(AsserProvider.assertProvider(Provider.Hello)).toInstance("你好呀");
+    }
+
+    @Provides
+    public SampleProvider sampleProvider() {
+        String name = "神的孩子都在歌唱";
+        int age = 23;
+
+        SampleProvider sampleProvider = new SampleProviderImpl(name , age);
+
+        return  sampleProvider;
     }
 }
