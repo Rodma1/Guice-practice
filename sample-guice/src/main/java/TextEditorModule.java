@@ -1,7 +1,6 @@
 import annotation.*;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
-import com.google.inject.name.Named;
 import com.google.inject.name.Names;
 import contract.Assertor;
 import contract.SampleProvider;
@@ -43,6 +42,7 @@ public class TextEditorModule extends AbstractModule {
     }
 
     @Provides
+    @SampleAaction
     public SampleProvider sampleProvider() {
         String name = "神的孩子都在歌唱";
         int age = 23;

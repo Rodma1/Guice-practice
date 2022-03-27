@@ -2,6 +2,7 @@ package domain;
 
 import annotation.AssertProvider;
 import annotation.Provider;
+import annotation.SampleAaction;
 import annotation.UseJunit;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -31,7 +32,7 @@ public class TextEditor {
     public TextEditor(SpellChecker spellChecker,
                       @AssertProvider(Provider.TestNG) Assertor assertor,
                       @AssertProvider(Provider.Hello) String ss,
-                      SampleProvider sampleProvider
+                      @SampleAaction SampleProvider sampleProvider
     ){
         this.spellChecker = spellChecker;
 
