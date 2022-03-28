@@ -52,6 +52,7 @@ public class TextEditor {
         System.out.println(ss);
 
         sampleProvider.someAction();
+
     }
 
 }

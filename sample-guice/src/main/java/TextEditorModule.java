@@ -39,16 +39,27 @@ public class TextEditorModule extends AbstractModule {
 
         //  自定义参数绑定
         bind(String.class).annotatedWith(AsserProvider.assertProvider(Provider.Hello)).toInstance("你好呀");
+
+        // 直接传,发现SampleProviderImpl需要传参数
+//        bind(SampleProvider.class).annotatedWith(SampleAaction.class).to(SampleProviderImpl.class);
+
+        // 绑定Configure参数
+        bind(Integer.class).annotatedWith(AsserProvider.assertProvider(Provider.age)).toInstance(new Configure().age);
+//        bind(String.class).annotatedWith(AsserProvider.assertProvider(Provider.name)).toInstance(new Configure().name);
+        bindConstant().annotatedWith(Names.named("Name")).to(new Configure().name);
+
+        // 绑定实现的provider
+        bind(SampleProvider.class).annotatedWith(SampleAaction.class).toProvider(SampleClassProvider.class);
     }
 
-    @Provides
-    @SampleAaction
-    public SampleProvider sampleProvider() {
-        String name = "神的孩子都在歌唱";
-        int age = 23;
-
-        SampleProvider sampleProvider = new SampleProviderImpl(name , age);
-
-        return  sampleProvider;
-    }
+//    @Provides
+//    @SampleAaction
+//    public SampleProvider sampleProvider() {
+//        String name = "神的孩子都在歌唱";
+//        int age = 23;
+//
+//        SampleProvider sampleProvider = new SampleProviderImpl(name , age);
+//
+//        return  sampleProvider;
+//    }
 }

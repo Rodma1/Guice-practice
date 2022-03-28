@@ -9,5 +9,7 @@ public enum Provider {
     TestNG,
     JUnit,
     Hello,
+    name,
+    age,
     Other
 }
